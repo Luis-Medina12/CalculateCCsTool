@@ -1,0 +1,71 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 30px;
+  padding-bottom: 5px;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.tooltitle{
+  font-size:25px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 10px;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  
+}
+.toolContainer{
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  min-height: 60vh;
+  border-radius: 20px;
+  display: inline-block;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+select option{
+  background: white;
+}
