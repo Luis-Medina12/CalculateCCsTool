@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [current, setCurrent] = useState(null)
+  const [current, setCurrent] = useState('')
   const [currValue, setCurrValue] = useState(0);
   const [result, setResult] = useState(0);
 
@@ -14,34 +14,34 @@ function App() {
     let electricHP = 0;
 
     if(document.getElementById("current").value == "Wattage"){
+      
       // calculate electric HP first
-
-      electricHP = Math.ceil(orignalInput*.00134);
+      electricHP = orignalInput*.00134;
     }else{
       electricHP = orignalInput;
     }
 
     // Convert to gasoline HP and then to CCs
     // 100 CCS is the minimum rated power, anything below it is rated the same
-    if((electricHP*5)*12 <100){
+    let result = (electricHP*5)*12;
+
+    if(result < 100){
       setResult(100);
     }else{
-      setResult((electricHP*5)*12);
+      setResult(Math.round(result));
     }
-    console.log(currValue)
   }
 
   function handleOriginalChange(original){
     setCurrent(original);
     setCurrValue(0)
     setResult(0);
-    document.getElementById("currentValue").value = ''
+    document.getElementById("currentValue").value = '';
 
   }
 
   return (
     <>
-      
       <body>
         <div className='toolContainer'>
           <header>
@@ -60,7 +60,7 @@ function App() {
                 </select>
             </label>
 
-            {current!= null && 
+            {current!= '' && 
               <label for = 'currentValue'> Enter provided {current}:
                 <input type='number' id = 'currentValue' onChange={e => CalculateCCS(e.target.value)}></input>
                </label>
